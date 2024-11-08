@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, CancelTokenSource } from "axios";
 
-export const urlBackend = "";
+export const urlBackend = "http://localhost:4312";
 
 export const bearer = (token: string, cancelToken?: CancelTokenSource) => {
     const config: AxiosRequestConfig = {
