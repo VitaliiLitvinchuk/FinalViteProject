@@ -25,9 +25,12 @@ const Header = () => {
                                         <NavDropdown key={x.path} title={Limiter(x.name)}>
                                             {
                                                 x.nested.map(x2 =>
-                                                    <NavDropdown.Item as={Link} key={`${x2.path}${x2.name}`} to={`${x.path}${x2.path}`}>
-                                                        {Limiter(x2.name)}
-                                                    </NavDropdown.Item>
+                                                    accessLevel.includes(x2.accessLevel) &&
+                                                    (
+                                                        <NavDropdown.Item as={Link} key={`${x2.path}${x2.name}`} to={`${x.path}${x2.path}`}>
+                                                            {Limiter(x2.name)}
+                                                        </NavDropdown.Item>
+                                                    )
                                                 )
                                             }
                                         </NavDropdown>

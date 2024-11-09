@@ -1,7 +1,9 @@
 import React from "react";
 import HomePage from "./components/home-page";
 import roles from "./utils/user-specific/roles";
-
+import crudComponents from "./components/crud-pages";
+import { cruds } from ".//components/crud-pages/constants";
+import { keys, names, paths } from "./components/crud-pages/constants";
 const rootPath = "";
 
 export interface IRouteEndpoint {
@@ -22,6 +24,19 @@ const rootRoute: IRouteEndpoint = {
 
 export const routes: IRouteEndpoint[] = [
     rootRoute,
+    {
+        path: `${rootPath}/cruds`,
+        component: null,
+        accessLevel: roles.GUEST,
+        name: "CRUDs",
+        nested: paths.map((path, index): IRouteEndpoint => ({
+            path: `/${path}`,
+            accessLevel: cruds[index].accessLevel,
+            component: crudComponents[keys[index]],
+            name: names[index],
+            nested: null
+        })),
+    }
 ];
 
 export default rootPath; 

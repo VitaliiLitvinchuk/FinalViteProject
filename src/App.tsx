@@ -14,12 +14,16 @@ const App = () => {
           routes.map(x =>
             accessLevel.includes(x.accessLevel) &&
             (
-              x.nested ? x.nested.map(x2 => x2.component && (
-                <Route
-                  key={`${x2.path}`}
-                  path={`${x.path}${x2.path}`}
-                  element={<x2.component />} />
-              ))
+              x.nested ? x.nested.map(x2 =>
+                accessLevel.includes(x2.accessLevel) &&
+                (
+                  x2.component && (
+                    <Route
+                      key={`${x2.path}`}
+                      path={`${x.path}${x2.path}`}
+                      element={<x2.component />} />
+                  )
+                ))
                 :
                 x.component &&
                 <Route

@@ -6,7 +6,7 @@ import CreateModal from './test/index1';
 
 const HomePage = () => {
     return (
-        <>
+        <div className='text-center'>
             <CreateModal />
             <div>
                 <a href="https://vitejs.dev" target="_blank">
@@ -26,7 +26,7 @@ const HomePage = () => {
             <p>
                 Click on the Vite and React logos to learn more
             </p>
-        </>
+        </div>
     )
 }
 
