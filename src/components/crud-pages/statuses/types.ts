@@ -32,7 +32,7 @@ export interface IUpdateStatus {
 
 export interface IDeleteStatus {
     type: StatusesActionTypes.DELETE_STATUS
-    payload: string
+    payload: IStatus
 }
 
 export type StatusesAction = IGetStatuses | IAddStatus | IUpdateStatus | IDeleteStatus;

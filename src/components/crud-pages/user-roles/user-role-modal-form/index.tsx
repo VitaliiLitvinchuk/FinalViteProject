@@ -1,15 +1,14 @@
 import { Dispatch, SetStateAction, useMemo, useState } from "react";
-import { IStatus } from "../types";
 import { IFieldSpecifics, IModalFormError, IValidation } from "../../../features/modal-form/types";
 import ModalForm from "../../../features/modal-form";
-import React from "react";
+import { IUserRole } from "../types";
 
 interface IStatusWorkerModalProps {
     show: boolean
-    status: IStatus
+    status: IUserRole
     title: string
     handleClose: () => void
-    handleSubmit: (status: IStatus) => void
+    handleSubmit: (role: IUserRole) => void
 }
 
 interface IErrorType extends IModalFormError {
@@ -29,7 +28,7 @@ const specifics = [
     { title: "Title", type: "text" },
 ] as IFieldSpecifics[];
 
-const StatusWorkerModal = React.memo(({ show, status, title, handleClose, handleSubmit }: IStatusWorkerModalProps) => {
+const UserRoleWorkerModal = ({ show, status, title, handleClose, handleSubmit }: IStatusWorkerModalProps) => {
     const [name, setName] = useState<string>(status.name);
     const [error, setError] = useState<IErrorType>({ name: "" });
 
@@ -54,10 +53,10 @@ const StatusWorkerModal = React.memo(({ show, status, title, handleClose, handle
             handleClose={handleClose}
             setError={setError as Dispatch<SetStateAction<IModalFormError>>}
             handleSubmit={(e) => {
-                handleSubmit({ ...status, ...e as unknown as IStatus });
+                handleSubmit({ ...status, ...e as unknown as IUserRole });
             }}
         />
     )
-});
+};
 
-export default StatusWorkerModal;
+export default UserRoleWorkerModal;

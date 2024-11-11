@@ -24,7 +24,7 @@ export const statusesReducer = (state = initialState, action: StatusesAction) =>
         case StatusesActionTypes.DELETE_STATUS:
             return {
                 ...state,
-                statuses: state.statuses.filter(status => status.id !== action.payload)
+                statuses: state.statuses.filter(status => status.id !== action.payload.id)
             }
         default:
             return state

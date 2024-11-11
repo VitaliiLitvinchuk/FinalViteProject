@@ -1,16 +1,15 @@
 import { useEffect, useRef, useState } from "react";
-import { IStatus } from "../types";
-import StatusWorkerModal from "../status-modal-form";
 import { useActions } from "../../../../hooks/useActions";
 import axios, { CancelTokenSource } from "axios";
-import React from "react";
+import { IUserRole } from "../types";
+import UserRoleWorkerModal from ".";
 
-const CreateStatusModal = React.memo(() => {
-    const [status, setStatus] = useState<IStatus>({ id: "", name: "" });
+const CreateUserRoleModal = () => {
+    const [status, setStatus] = useState<IUserRole>({ id: "", name: "" });
     const [show, setShow] = useState(false);
     const createCancelTokenRef = useRef<CancelTokenSource | null>(null);
 
-    const { addStatus } = useActions('statuses');
+    const { addUserRole } = useActions('userRoles');
 
     useEffect(() => {
         setStatus({ id: "", name: "" });
@@ -28,10 +27,10 @@ const CreateStatusModal = React.memo(() => {
 
     const handleShow = () => setShow(true);
 
-    const handleSubmit = (status: IStatus) => {
+    const handleSubmit = (status: IUserRole) => {
         createCancelTokenRef.current = axios.CancelToken.source();
 
-        addStatus(status, createCancelTokenRef.current?.token);
+        addUserRole(status, createCancelTokenRef.current?.token);
     }
 
     return (
@@ -41,9 +40,9 @@ const CreateStatusModal = React.memo(() => {
                 onClick={handleShow}>
                 <i className="fa fa-plus"></i>
             </div>
-            <StatusWorkerModal show={show} status={status} title='Create status' handleClose={handleClose} handleSubmit={handleSubmit} />
+            <UserRoleWorkerModal show={show} status={status} title='Create user role' handleClose={handleClose} handleSubmit={handleSubmit} />
         </>
     )
-});
+}
 
-export default CreateStatusModal;
+export default CreateUserRoleModal;

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useActions } from "../../../hooks/useActions";
-import CreateModal from "./status-modal-form/create";
+import CreateStatusModal from "./status-modal-form/create";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import axios from "axios";
@@ -46,7 +46,7 @@ const Statuses = React.memo(() => {
         <>
             <h1>Statuses</h1>
             <div className="d-flex justify-content-end me-5 my-2">
-                <CreateModal />
+                <CreateStatusModal />
             </div>
             <Table striped bordered hover variant="dark">
                 <thead>

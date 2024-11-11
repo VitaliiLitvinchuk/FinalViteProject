@@ -1,21 +1,21 @@
-import { Dispatch } from "redux";
-import { IStatus, StatusesAction, StatusesActionTypes } from './types';
-import { http_json, http_form } from "../../../utils/http/creator";
 import axios, { CancelToken } from "axios";
+import { IUserRole, UserRolesAction, UserRolesActionTypes } from "./types";
+import { http_form, http_json } from "../../../utils/http/creator";
+import { Dispatch } from "redux";
 
 const endpoints = {
-    get: "/statuses",
-    add: "/statuses/create",
-    update: "/statuses/update",
-    delete: "/statuses/delete"
+    get: "/user-roles",
+    add: "/user-roles/create",
+    update: "/user-roles/update",
+    delete: "/user-roles/delete"
 }
 
-export const getStatuses = (cancelToken?: CancelToken) => {
-    return async (dispatch: Dispatch<StatusesAction>) => {
+export const getUserRoles = (cancelToken?: CancelToken) => {
+    return async (dispatch: Dispatch<UserRolesAction>) => {
         try {
             const response = await http_json(cancelToken).get(endpoints.get);
 
-            dispatch({ type: StatusesActionTypes.GET_STATUSES, payload: response.data });
+            dispatch({ type: UserRolesActionTypes.GET_USER_ROLES, payload: response.data });
         }
         catch (error) {
             if (axios.isCancel(error))
@@ -23,19 +23,19 @@ export const getStatuses = (cancelToken?: CancelToken) => {
             else
                 console.log(error);
         }
-    }
+    };
 }
 
-export const addStatus = (status: IStatus, cancelToken?: CancelToken) => {
-    return async (dispatch: Dispatch<StatusesAction>) => {
+export const addUserRole = (userRole: IUserRole, cancelToken?: CancelToken) => {
+    return async (dispatch: Dispatch<UserRolesAction>) => {
         try {
             const data = new FormData();
 
-            data.append("name", status.name);
+            data.append("name", userRole.name);
 
             const response = await http_form(cancelToken).post(endpoints.add, data);
 
-            dispatch({ type: StatusesActionTypes.ADD_STATUS, payload: response.data });
+            dispatch({ type: UserRolesActionTypes.ADD_USER_ROLE, payload: response.data });
         }
         catch (error) {
             if (axios.isCancel(error))
@@ -43,19 +43,19 @@ export const addStatus = (status: IStatus, cancelToken?: CancelToken) => {
             else
                 console.log(error);
         }
-    }
+    };
 }
 
-export const updateStatus = (status: IStatus, cancelToken?: CancelToken) => {
-    return async (dispatch: Dispatch<StatusesAction>) => {
+export const updateUserRole = (userRole: IUserRole, cancelToken?: CancelToken) => {
+    return async (dispatch: Dispatch<UserRolesAction>) => {
         try {
             const data = new FormData();
 
-            Object.keys(status).forEach(key => data.append(key, status[key]));
+            Object.keys(userRole).forEach(key => data.append(key, userRole[key]));
 
             const response = await http_form(cancelToken).put(endpoints.update, data);
 
-            dispatch({ type: StatusesActionTypes.UPDATE_STATUS, payload: response.data });
+            dispatch({ type: UserRolesActionTypes.UPDATE_USER_ROLE, payload: response.data });
         }
         catch (error) {
             if (axios.isCancel(error))
@@ -63,18 +63,17 @@ export const updateStatus = (status: IStatus, cancelToken?: CancelToken) => {
             else
                 console.log(error);
         }
-    }
+    };
 }
 
-
-export const deleteStatus = (id: string, cancelToken?: CancelToken) => {
-    return async (dispatch: Dispatch<StatusesAction>) => {
+export const deleteUserRole = (id: string, cancelToken?: CancelToken) => {
+    return async (dispatch: Dispatch<UserRolesAction>) => {
         try {
             const params = new URLSearchParams({ id });
 
             const response = await http_json(cancelToken).delete(`${endpoints.delete}?${params}`);
 
-            dispatch({ type: StatusesActionTypes.DELETE_STATUS, payload: response.data });
+            dispatch({ type: UserRolesActionTypes.DELETE_USER_ROLE, payload: response.data });
         }
         catch (error) {
             if (axios.isCancel(error))
