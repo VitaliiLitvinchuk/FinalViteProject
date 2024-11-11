@@ -11,7 +11,7 @@ export const names: string[] = [
     'UsersGroups',
     'UserGroupRoles',
     'UserRoles',
-    'UsesrAssignments',
+    'UsersAssignments',
     'Users'
 ];
 
