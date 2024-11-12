@@ -15,24 +15,24 @@ export interface IUserGroupRolesState {
     userGroupRoles: IUserGroupRole[]
 }
 
-export interface IGetUserGroupRoles {
+export interface IGetUserGroupRolesAction {
     type: UserGroupRolesActionTypes.GET_USER_GROUP_ROLES
     payload: IUserGroupRole[]
 }
 
-export interface IAddUserGroupRole {
+export interface IAddUserGroupRoleAction {
     type: UserGroupRolesActionTypes.ADD_USER_GROUP_ROLE
     payload: IUserGroupRole
 }
 
-export interface IUpdateUserGroupRole {
+export interface IUpdateUserGroupRoleAction {
     type: UserGroupRolesActionTypes.UPDATE_USER_GROUP_ROLE
     payload: IUserGroupRole
 }
 
-export interface IDeleteUserGroupRole {
+export interface IDeleteUserGroupRoleAction {
     type: UserGroupRolesActionTypes.DELETE_USER_GROUP_ROLE
     payload: IUserGroupRole
 }
 
-export type UserGroupRolesAction = IGetUserGroupRoles | IAddUserGroupRole | IUpdateUserGroupRole | IDeleteUserGroupRole;
+export type UserGroupRolesAction = IGetUserGroupRolesAction | IAddUserGroupRoleAction | IUpdateUserGroupRoleAction | IDeleteUserGroupRoleAction;
