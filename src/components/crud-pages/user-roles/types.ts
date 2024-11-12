@@ -15,24 +15,24 @@ export interface IUserRolesState {
     userRoles: IUserRole[];
 }
 
-export interface IGetUserRoles {
+export interface IGetUserRolesAction {
     type: UserRolesActionTypes.GET_USER_ROLES;
     payload: IUserRole[];
 }
 
-export interface IAddUserRole {
+export interface IAddUserRoleAction {
     type: UserRolesActionTypes.ADD_USER_ROLE;
     payload: IUserRole;
 }
 
-export interface IUpdateUserRole {
+export interface IUpdateUserRoleAction {
     type: UserRolesActionTypes.UPDATE_USER_ROLE;
     payload: IUserRole;
 }
 
-export interface IDeleteUserRole {
+export interface IDeleteUserRoleAction {
     type: UserRolesActionTypes.DELETE_USER_ROLE;
     payload: IUserRole;
 }
 
-export type UserRolesAction = IGetUserRoles | IAddUserRole | IUpdateUserRole | IDeleteUserRole;
+export type UserRolesAction = IGetUserRolesAction | IAddUserRoleAction | IUpdateUserRoleAction | IDeleteUserRoleAction;
