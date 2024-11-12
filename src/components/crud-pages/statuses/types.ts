@@ -15,24 +15,24 @@ export interface IStatusesState {
     statuses: IStatus[]
 }
 
-export interface IGetStatuses {
+export interface IGetStatusesAction {
     type: StatusesActionTypes.GET_STATUSES
     payload: IStatus[]
 }
 
-export interface IAddStatus {
+export interface IAddStatusAction {
     type: StatusesActionTypes.ADD_STATUS
     payload: IStatus
 }
 
-export interface IUpdateStatus {
+export interface IUpdateStatusAction {
     type: StatusesActionTypes.UPDATE_STATUS
     payload: IStatus
 }
 
-export interface IDeleteStatus {
+export interface IDeleteStatusAction {
     type: StatusesActionTypes.DELETE_STATUS
     payload: string
 }
 
-export type StatusesAction = IGetStatuses | IAddStatus | IUpdateStatus | IDeleteStatus;
+export type StatusesAction = IGetStatusesAction | IAddStatusAction | IUpdateStatusAction | IDeleteStatusAction;
