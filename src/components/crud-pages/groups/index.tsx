@@ -42,7 +42,6 @@ const Statuses = React.memo(() => {
         setSelected(group);
         setShow(true);
     }, []);
-    console.log(groups);
 
     return (
         <>

@@ -4,7 +4,7 @@ const initialState: IStatusesState = {
     statuses: []
 }
 
-export const statusesReducer = (state = initialState, action: StatusesAction) => {
+export const statusesReducer = (state = initialState, action: StatusesAction): IStatusesState => {
     switch (action.type) {
         case StatusesActionTypes.GET_STATUSES:
             return {

@@ -4,7 +4,7 @@ const initialState: IUserGroupRolesState = {
     userGroupRoles: []
 };
 
-export const userGroupRolesReducer = (state = initialState, action: UserGroupRolesAction) => {
+export const userGroupRolesReducer = (state = initialState, action: UserGroupRolesAction): IUserGroupRolesState => {
     switch (action.type) {
         case UserGroupRolesActionTypes.GET_USER_GROUP_ROLES:
             return {
