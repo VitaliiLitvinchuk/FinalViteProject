@@ -6,15 +6,11 @@ import GroupWorkerModal from ".";
 import { ICreateGroup, IGroup } from "../types";
 
 const CreateGroupModal = React.memo(() => {
-    const [group, setGroup] = useState<IGroup>({ id: "", name: "", description: "", createdAt: "" });
+    const [group] = useState<IGroup>({ id: "", name: "", description: "", createdAt: "" });
     const [show, setShow] = useState(false);
     const createCancelTokenRef = useRef<CancelTokenSource | null>(null);
 
     const { addGroup } = useActions('groups');
-
-    useEffect(() => {
-        setGroup({ id: "", name: "", description: "", createdAt: "" });
-    }, []);
 
     useEffect(() => {
         return () => {

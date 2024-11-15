@@ -6,15 +6,11 @@ import axios, { CancelTokenSource } from "axios";
 import React from "react";
 
 const CreateStatusModal = React.memo(() => {
-    const [status, setStatus] = useState<IStatus>({ id: "", name: "" });
+    const [status] = useState<IStatus>({ id: "", name: "" });
     const [show, setShow] = useState(false);
     const createCancelTokenRef = useRef<CancelTokenSource | null>(null);
 
     const { addStatus } = useActions('statuses');
-
-    useEffect(() => {
-        setStatus({ id: "", name: "" });
-    }, []);
 
     useEffect(() => {
         return () => {
@@ -22,9 +18,7 @@ const CreateStatusModal = React.memo(() => {
         };
     }, []);
 
-    const handleClose = () => {
-        setShow(false);
-    }
+    const handleClose = () => setShow(false);
 
     const handleShow = () => setShow(true);
 

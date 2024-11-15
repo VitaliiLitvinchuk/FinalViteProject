@@ -6,15 +6,11 @@ import { IUserGroupRole } from "../types";
 import UserGroupRoleWorkerModal from ".";
 
 const CreateUserGroupRoleModal = React.memo(() => {
-    const [userGroupRole, setUserGroupRole] = useState<IUserGroupRole>({ id: "", name: "" });
+    const [userGroupRole] = useState<IUserGroupRole>({ id: "", name: "" });
     const [show, setShow] = useState(false);
     const createCancelTokenRef = useRef<CancelTokenSource | null>(null);
 
     const { addUserGroupRole } = useActions('userGroupRoles');
-
-    useEffect(() => {
-        setUserGroupRole({ id: "", name: "" });
-    }, []);
 
     useEffect(() => {
         return () => {
@@ -22,9 +18,7 @@ const CreateUserGroupRoleModal = React.memo(() => {
         };
     }, []);
 
-    const handleClose = () => {
-        setShow(false);
-    }
+    const handleClose = () => setShow(false);
 
     const handleShow = () => setShow(true);
 

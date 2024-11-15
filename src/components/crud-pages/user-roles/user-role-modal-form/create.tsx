@@ -5,15 +5,11 @@ import { IUserRole } from "../types";
 import UserRoleWorkerModal from ".";
 
 const CreateUserRoleModal = () => {
-    const [status, setStatus] = useState<IUserRole>({ id: "", name: "" });
+    const [status] = useState<IUserRole>({ id: "", name: "" });
     const [show, setShow] = useState(false);
     const createCancelTokenRef = useRef<CancelTokenSource | null>(null);
 
     const { addUserRole } = useActions('userRoles');
-
-    useEffect(() => {
-        setStatus({ id: "", name: "" });
-    }, []);
 
     useEffect(() => {
         return () => {
@@ -21,9 +17,7 @@ const CreateUserRoleModal = () => {
         };
     }, []);
 
-    const handleClose = () => {
-        setShow(false);
-    }
+    const handleClose = () => setShow(false);
 
     const handleShow = () => setShow(true);
 

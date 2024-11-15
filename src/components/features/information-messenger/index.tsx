@@ -5,12 +5,12 @@ import './index.css';
 const InformationMessenger = () => {
     const [message, setMessage] = useState<React.ReactNode | null>(null);
 
-    const { showInformationMessanger, informationMessangerFileName: informationMessengerNodeName } = useTypedSelector(state => state.featuresReducer);
+    const { showInformationMessenger, informationMessengerFileName, backgroundColor } = useTypedSelector(state => state.informationMessengerReducer);
 
     useEffect(() => {
-        if (informationMessengerNodeName) {
+        if (informationMessengerFileName) {
             const fetchMessage = async () => {
-                const module = await import(`./messages/${informationMessengerNodeName}.tsx`);
+                const module = await import(`./messages/${informationMessengerFileName}.tsx`);
                 setMessage(module.default());
             };
             fetchMessage();
@@ -19,12 +19,12 @@ const InformationMessenger = () => {
         return () => {
             setMessage(null);
         }
-    }, [informationMessengerNodeName]);
+    }, [informationMessengerFileName]);
 
     return (
         <>
-            {showInformationMessanger && (
-                <div className="info-panel">
+            {showInformationMessenger && (
+                <div className="info-panel" style={{ backgroundColor }}>
                     {message}
                 </div>
             )}
