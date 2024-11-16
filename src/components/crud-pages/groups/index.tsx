@@ -65,7 +65,7 @@ const Statuses = React.memo(() => {
                             <td className="text-start"><span className="mx-2">{group.id}</span></td>
                             <td className="text-start"><span className="mx-2">{group.name}</span></td>
                             <td className="text-start"><span className="mx-2">{group.description}</span></td>
-                            <td className="text-start"><span className="mx-2">{moment(group.createAt).format('YYYY-MM-DD HH:mm:ss')}</span></td>
+                            <td className="text-start"><span className="mx-2">{moment(group.createdAt).format('YYYY-MM-DD HH:mm:ss')}</span></td>
                             <td>
                                 <Container fluid>
                                     <Row>
