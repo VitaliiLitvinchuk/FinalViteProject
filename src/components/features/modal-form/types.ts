@@ -16,5 +16,5 @@ export interface IModalFormError {
 export interface IFieldSpecifics {
     title: string
     type: "text" | "number" | "date" | "file" | "password" | "select"
-    options?: string[]
+    options?: [{ value: string, label: string }]
 }

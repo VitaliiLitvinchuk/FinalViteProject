@@ -103,8 +103,8 @@ const ModalForm = React.memo(({ show, title, handleClose, getter, setter, error,
                                             <>
                                                 <option value="">Choose</option>
                                                 {
-                                                    specific.options?.map((option) => (
-                                                        <option key={option} value={option}>{option}</option>
+                                                    specific.options?.map(({ label, value }) => (
+                                                        <option key={value} value={value}>{label}</option>
                                                     ))
                                                 }
                                             </>

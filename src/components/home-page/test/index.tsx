@@ -42,7 +42,7 @@ const specifics = [
     { title: "First Name", type: "text" },
     { title: "Last Name", type: "text" },
     { title: "Phone", type: "text" },
-    { title: "Gender", type: "select", options: ["male", "female"] },
+    { title: "Gender", type: "select", options: [{ value: "male", label: "Male" }, { value: "female", label: "Female" }] },
     { title: "Profile Picture", type: "file" }
 ] as IFieldSpecifics[];
 
