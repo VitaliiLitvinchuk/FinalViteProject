@@ -54,14 +54,14 @@ const Users = React.memo(() => {
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
-                        <th className="px-4" style={{ width: "10%" }}>Id</th>
+                        <th className="px-4" style={{ width: "20%" }}>Id</th>
                         <th className="px-4" style={{ width: "10%" }}>First name</th>
                         <th className="px-4" style={{ width: "10%" }}>Last name</th>
                         <th className="px-4" style={{ width: "10%" }}>Email</th>
                         <th className="px-4" style={{ width: "10%" }}>Google Id</th>
                         <th className="px-4" style={{ width: "10%" }}>Role</th>
                         <th className="px-4" style={{ width: "10%" }}>Avatar</th>
-                        <th className="text-center" style={{ width: "30%" }}>Actions</th>
+                        <th className="text-center" style={{ width: "20%" }}>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
