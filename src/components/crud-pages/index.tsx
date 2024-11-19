@@ -5,7 +5,7 @@ import Loader from "../loader";
 // eslint-disable-next-line react-refresh/only-export-components
 const CrudLoader = ({ name }: { name: string }) => {
     return (
-        <div className="position-absolute top-50 start-50 translate-middle">
+        <div className="position-absolute text-center top-50 start-50 translate-middle">
             <div>
                 <Loader visible={true} />
             </div>
