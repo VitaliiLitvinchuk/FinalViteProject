@@ -30,9 +30,9 @@ const Users = React.memo(() => {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const handleEdit = useCallback((user: IUser) => {
+    const handleEdit = useCallback(async (user: IUser) => {
         setSelected(null);
-        updateUser(user as unknown as IUpdateUser);
+        await updateUser(user as unknown as IUpdateUser);
 
         if (user.userRoleId !== users.find(u => u.id === user.id)?.userRoleId) {
             updateRoleForUser({ id: user.id, userRoleId: user.userRoleId });

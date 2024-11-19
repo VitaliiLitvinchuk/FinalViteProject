@@ -34,14 +34,9 @@ export const addUser = (user: ICreateUser, cancelToken?: CancelToken) => {
 
             Object.keys(user).forEach((key) => data.append(key, user[key]));
 
-            // user without included role (api todo)
             const response = await http_form(cancelToken).post<IUser>(endpoints.add, data);
 
-            const params = new URLSearchParams({ id: response.data.id });
-
-            const response1 = await http_json(cancelToken).get(`${endpoints.getById}?${params}`);
-
-            dispatch({ type: UsersActionTypes.ADD_USER, payload: response1.data });
+            dispatch({ type: UsersActionTypes.ADD_USER, payload: response.data });
         } catch (error) {
             if (axios.isCancel(error))
                 console.log('Request canceled:', error.message);
@@ -77,14 +72,9 @@ export const updateRoleForUser = (user: IUpdateRoleForUser, cancelToken?: Cancel
 
             Object.keys(user).forEach((key) => data.append(key, user[key]));
 
-            // user without included role (api todo)
             const response = await http_form(cancelToken).put(endpoints.updateRole, data);
 
-            const params = new URLSearchParams({ id: response.data.id });
-
-            const response1 = await http_json(cancelToken).get(`${endpoints.getById}?${params}`);
-
-            dispatch({ type: UsersActionTypes.UPDATE_ROLE_FOR_USER, payload: response1.data });
+            dispatch({ type: UsersActionTypes.UPDATE_ROLE_FOR_USER, payload: response.data });
         } catch (error) {
             if (axios.isCancel(error))
                 console.log('Request canceled:', error.message);

@@ -5,6 +5,7 @@ import { userGroupRolesReducer } from "../../components/crud-pages/user-group-ro
 import { groupsReducer } from "../../components/crud-pages/groups/reducer";
 import { informationMessengerReducer } from "../../components/features/information-messenger/recuder";
 import { usersReducer } from "../../components/crud-pages/users/reducer";
+import { usersGroupsReducer } from '../../components/crud-pages/users-groups/reducer';
 
 export const rootReducer = combineReducers({
     informationMessengerReducer,
@@ -13,6 +14,7 @@ export const rootReducer = combineReducers({
     userGroupRolesReducer,
     groupsReducer,
     usersReducer,
+    usersGroupsReducer,
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

@@ -9,7 +9,7 @@ import CreateGroupModal from "./group-modal-form/create";
 import GroupWorkerModal from "./group-modal-form";
 import moment from "moment";
 
-const Statuses = React.memo(() => {
+const Groups = React.memo(() => {
     const [show, setShow] = useState(false);
     const [selected, setSelected] = useState<IGroup | null>(null);
 
@@ -90,4 +90,4 @@ const Statuses = React.memo(() => {
     )
 });
 
-export default Statuses;
+export default Groups;
