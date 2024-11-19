@@ -5,6 +5,7 @@ import * as GroupsActions from "../../components/crud-pages/groups/actions";
 import * as InformationMessengerActions from "../../components/features/information-messenger/actions";
 import * as UsersActions from "../../components/crud-pages/users/actions";
 import * as UsersGroupsActions from "../../components/crud-pages/users-groups/actions";
+import * as CoursesActions from "../../components/crud-pages/courses/actions";
 
 export default {
     informationMessenger: InformationMessengerActions,
@@ -14,4 +15,5 @@ export default {
     groups: GroupsActions,
     users: UsersActions,
     usersGroups: UsersGroupsActions,
+    courses: CoursesActions,
 }
