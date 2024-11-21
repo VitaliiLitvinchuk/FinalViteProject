@@ -57,11 +57,11 @@ const CourseWorkerModal = React.memo(({ show, course, title, handleClose, handle
         const source = axios.CancelToken.source();
 
         if (!specifics[2].options?.length) {
-            getUsers();
+            getUsers(source.token);
         }
 
         if (!specifics[3].options?.length) {
-            getGroups();
+            getGroups(source.token);
         }
 
         return () => {
