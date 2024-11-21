@@ -14,7 +14,7 @@ const CreateUserGroupModal = React.memo(() => {
 
     useEffect(() => {
         return () => {
-            createCancelTokenRef.current?.cancel("Create group canceled");
+            createCancelTokenRef.current?.cancel("Create user group canceled");
         };
     }, []);
 

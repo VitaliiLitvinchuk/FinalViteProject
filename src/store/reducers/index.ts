@@ -8,6 +8,7 @@ import { usersReducer } from "../../components/crud-pages/users/reducer";
 import { usersGroupsReducer } from '../../components/crud-pages/users-groups/reducer';
 import { coursesReducer } from "../../components/crud-pages/courses/reducer";
 import { assignmentsReducer } from "../../components/crud-pages/assignments/reducer";
+import { usersAssignmentsReducer } from "../../components/crud-pages/users-assignments/reducer";
 
 export const rootReducer = combineReducers({
     informationMessengerReducer,
@@ -19,6 +20,7 @@ export const rootReducer = combineReducers({
     usersGroupsReducer,
     coursesReducer,
     assignmentsReducer,
+    usersAssignmentsReducer
 });
 
 export type RootState = ReturnType<typeof rootReducer>;

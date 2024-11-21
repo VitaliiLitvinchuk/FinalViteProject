@@ -7,6 +7,7 @@ import * as UsersActions from "../../components/crud-pages/users/actions";
 import * as UsersGroupsActions from "../../components/crud-pages/users-groups/actions";
 import * as CoursesActions from "../../components/crud-pages/courses/actions";
 import * as AssignmentsActions from "../../components/crud-pages/assignments/actions";
+import * as UsersAssignmentsActions from "../../components/crud-pages/users-assignments/actions";
 
 export default {
     informationMessenger: InformationMessengerActions,
@@ -18,4 +19,5 @@ export default {
     usersGroups: UsersGroupsActions,
     courses: CoursesActions,
     assignments: AssignmentsActions,
+    usersAssignments: UsersAssignmentsActions,
 }
