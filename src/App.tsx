@@ -3,19 +3,21 @@ import './App.css';
 import { Navigate, Route } from 'react-router-dom'
 import rootPath, { routes } from './routes'
 import Layout from './components/layout'
-import rolesAccess from './utils/user-specific/roles-access';
+import Login from './components/user-components/login';
+import { useTypedSelector } from './hooks/useTypedSelector';
 
-const accessLevel = rolesAccess.guest;
 const App = () => {
+  const { isLoggined, role } = useTypedSelector(state => state.loginReducer);
+
   return (
     <Routes>
       <Route path={rootPath} element={<Layout />}>
         {
           routes.map(x =>
-            accessLevel.includes(x.accessLevel) &&
+            role.includes(x.accessLevel) &&
             (
               x.nested ? x.nested.map(x2 =>
-                accessLevel.includes(x2.accessLevel) &&
+                role.includes(x2.accessLevel) &&
                 (
                   x2.component && (
                     <Route
@@ -32,6 +34,10 @@ const App = () => {
                   element={<x.component />} />
             )
           )
+        }
+        {
+          !isLoggined &&
+          <Route path={`${rootPath}/login`} element={<Login />} />
         }
       </Route>
       <Route path='*' element={<Navigate to={rootPath} />} />

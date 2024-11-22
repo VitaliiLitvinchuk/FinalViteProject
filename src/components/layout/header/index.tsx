@@ -1,14 +1,18 @@
-import { Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, NavDropdown, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { routes } from "../../../routes";
-import rolesAccess from "../../../utils/user-specific/roles-access";
+import rootPath, { routes } from "../../../routes";
+import { useTypedSelector } from "../../../hooks/useTypedSelector";
+import { useActions } from '../../../hooks/useActions';
 
 const symbolsLimit = 25;
 const Limiter = (x: string)
     : string => x.length > symbolsLimit ? `${x.slice(0, symbolsLimit)}...` : x;
 
-const accessLevel = rolesAccess.guest;
 const Header = () => {
+    const { isLoggined, role } = useTypedSelector(state => state.loginReducer);
+
+    const { logoutAction } = useActions('login');
+
     return (
         <header>
             <Navbar bg="dark" data-bs-theme="dark">
@@ -19,13 +23,13 @@ const Header = () => {
                     <Nav className="me-auto">
                         {
                             routes.slice(1).map(x =>
-                                accessLevel.includes(x.accessLevel) &&
+                                role.includes(x.accessLevel) &&
                                 (
                                     x.nested ?
                                         <NavDropdown key={x.path} title={Limiter(x.name)}>
                                             {
                                                 x.nested.map(x2 =>
-                                                    accessLevel.includes(x2.accessLevel) &&
+                                                    role.includes(x2.accessLevel) &&
                                                     (
                                                         <NavDropdown.Item as={Link} key={`${x2.path}${x2.name}`} to={`${x.path}${x2.path}`}>
                                                             {Limiter(x2.name)}
@@ -41,6 +45,24 @@ const Header = () => {
                                         </Nav.Item>
                                 )
                             )
+                        }
+                    </Nav>
+                    <Nav className="ms-auto">
+                        {
+
+                            isLoggined ?
+                                <>
+                                    <Nav.Item>
+                                        <Button variant="link" onClick={() => logoutAction()}>
+                                            Logout
+                                        </Button>
+                                    </Nav.Item>
+                                </> :
+                                <>
+                                    <Nav.Item>
+                                        <Link className="nav-link" to={`${rootPath}/login`}>Login</Link>
+                                    </Nav.Item>
+                                </>
                         }
                     </Nav>
                 </Container>

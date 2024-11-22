@@ -27,7 +27,7 @@ export const routes: IRouteEndpoint[] = [
     {
         path: `${rootPath}/cruds`,
         component: null,
-        accessLevel: roles.GUEST,
+        accessLevel: roles.USER,
         name: "CRUDs",
         nested: paths.map((path, index): IRouteEndpoint => ({
             path: `/${path}`,

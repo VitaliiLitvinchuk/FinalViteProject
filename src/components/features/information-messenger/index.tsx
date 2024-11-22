@@ -1,31 +1,33 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import { useTypedSelector } from "../../../hooks/useTypedSelector";
-import './index.css';
+import "./index.css";
 
 const InformationMessenger = () => {
-    const [message, setMessage] = useState<React.ReactNode | null>(null);
+    const [DynamicComponent, setDynamicComponent] = useState<React.LazyExoticComponent<React.ComponentType> | null>(null);
 
     const { showInformationMessenger, informationMessengerFileName, backgroundColor } = useTypedSelector(state => state.informationMessengerReducer);
 
     useEffect(() => {
         if (informationMessengerFileName) {
-            const fetchMessage = async () => {
+            const fetchComponent = async () => {
                 const module = await import(`./messages/${informationMessengerFileName}.tsx`);
-                setMessage(module.default());
+                setDynamicComponent(() => React.lazy(() => Promise.resolve({ default: module.default })));
             };
-            fetchMessage();
+            fetchComponent();
         }
 
         return () => {
-            setMessage(null);
-        }
+            setDynamicComponent(null);
+        };
     }, [informationMessengerFileName]);
 
     return (
         <>
-            {showInformationMessenger && (
+            {showInformationMessenger && DynamicComponent && (
                 <div className="info-panel" style={{ backgroundColor }}>
-                    {message}
+                    <Suspense fallback={<div>Loading...</div>}>
+                        <DynamicComponent />
+                    </Suspense>
                 </div>
             )}
         </>
