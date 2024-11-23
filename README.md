@@ -51,6 +51,6 @@ App
 │       │   ├── UsersGroups
 │       │   └── Users
 │       │       ├── Template of page structure  
-│       │       ├── Create[User]
-│       │       └── Edit[User] or [User]WorkerModal
+│       │       ├── CreateModal
+│       │       └── EditModal or [User]WorkerModal
 ```
