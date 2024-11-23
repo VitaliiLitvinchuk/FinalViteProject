@@ -34,6 +34,7 @@ The use of useTypedSelector suggests a centralized state management approach, li
 Components like Layout and CrudPages are designed to be reusable, promoting DRY (Don't Repeat Yourself) principles. This approach encourages code reuse and makes it easier to maintain a consistent user interface across the application.
 
 ## Component Tree
+```text
 App
 ├── Layout
 │   ├── Header
@@ -53,3 +54,4 @@ App
 │       │       ├── [User]ModalForm
 │       │       │   ├── Create[User]
 │       │       │   └── Edit[User] or [User]WorkerModal
+```
