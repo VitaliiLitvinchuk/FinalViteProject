@@ -1,6 +1,6 @@
 import axios, { AxiosRequestConfig, CancelToken } from "axios";
 
-export const urlBackend = "http://localhost:4312";
+export const urlBackend = import.meta.env.VITE_API_URL;
 
 export const bearer_json = (token: string, cancelToken?: CancelToken) => {
     const config: AxiosRequestConfig = {
