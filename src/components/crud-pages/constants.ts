@@ -38,11 +38,13 @@ export interface Crud {
     accessLevel: typeof roles[keyof typeof roles];
 }
 
+const modules = import.meta.glob('./*/constants.ts');
+
 const getAccessLevel = async (path: string): Promise<typeof roles[keyof typeof roles]> => {
     try {
-        const module = await import(`./${path}/constants`);
+        const module = modules[`./${path}/constants.ts`] as () => Promise<{ accessLevel: typeof roles[keyof typeof roles] }>;
 
-        const accessLevel = module.accessLevel;
+        const { accessLevel } = await module();
 
         return accessLevel;
     } catch {
