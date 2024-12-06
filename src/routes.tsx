@@ -1,9 +1,9 @@
 import React from "react";
-import HomePage from "./components/home-page";
+import HomePage from "./features/home-page";
 import roles from "./utils/user-specific/roles";
-import crudComponents from "./components/crud-pages";
-import { cruds } from ".//components/crud-pages/constants";
-import { keys, names, paths } from "./components/crud-pages/constants";
+import crudComponents from "./features/crud-pages";
+import { cruds } from "./features/crud-pages/constants";
+import { keys, names, paths } from "./features/crud-pages/constants";
 const rootPath = "";
 
 export interface IRouteEndpoint {

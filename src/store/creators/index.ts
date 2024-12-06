@@ -1,14 +1,14 @@
-import * as StatusesActions from "../../components/crud-pages/statuses/actions";
-import * as UserRolesActions from "../../components/crud-pages/user-roles/actions";
-import * as UserGroupRolesActions from "../../components/crud-pages/user-group-roles/actions";
-import * as GroupsActions from "../../components/crud-pages/groups/actions";
-import * as InformationMessengerActions from "../../components/features/information-messenger/actions";
-import * as UsersActions from "../../components/crud-pages/users/actions";
-import * as UsersGroupsActions from "../../components/crud-pages/users-groups/actions";
-import * as CoursesActions from "../../components/crud-pages/courses/actions";
-import * as AssignmentsActions from "../../components/crud-pages/assignments/actions";
-import * as UsersAssignmentsActions from "../../components/crud-pages/users-assignments/actions";
-import * as LoginActions from "../../components/user-components/login/actions";
+import * as StatusesActions from "../../features/crud-pages/statuses/store/actions";
+import * as UserRolesActions from "../../features/crud-pages/user-roles/store/actions";
+import * as UserGroupRolesActions from "../../features/crud-pages/user-group-roles/store/actions";
+import * as GroupsActions from "../../features/crud-pages/groups/store/actions";
+import * as InformationMessengerActions from "../../components/information-messenger/actions";
+import * as UsersActions from "../../features/crud-pages/users/store/actions";
+import * as UsersGroupsActions from "../../features/crud-pages/users-groups/store/actions";
+import * as CoursesActions from "../../features/crud-pages/courses/store/actions";
+import * as AssignmentsActions from "../../features/crud-pages/assignments/store/actions";
+import * as UsersAssignmentsActions from "../../features/crud-pages/users-assignments/store/actions";
+import * as LoginActions from "../../features/user-pages/login/store/actions";
 
 export default {
     informationMessenger: InformationMessengerActions,

@@ -3,7 +3,7 @@ import './App.css';
 import { Navigate, Route } from 'react-router-dom'
 import rootPath, { routes } from './routes'
 import Layout from './components/layout'
-import Login from './components/user-components/login';
+import Login from './features/user-pages/login';
 import { useTypedSelector } from './hooks/useTypedSelector';
 
 const App = () => {
